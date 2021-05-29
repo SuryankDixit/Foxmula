@@ -1,17 +1,16 @@
 package com.foxmula.assignment1;
 
-public class Parallelogram extends Quadrilateral {
-    private double height;
+public class Parallelogram extends Quadrilateral{
+    
+    int height;
 
-    public Parallelogram(CoordinatePair p1, CoordinatePair p2, CoordinatePair p3, CoordinatePair p4, double height) {
-        super(p1, p2, p3, p4);
-        this.height = height;
+    Parallelogram(int x1,int y1,int x2,int y2,int x3,int y3,int x4,int y4,int height){
+        setCoordinates(x1, y1, x2, y2, x3, y3, x4, y4);  
+        this.height = height;           
     }
 
-    public double Area(){
-        double base = super.LengthOfTheSide();
-        double area = base * this.height;
-
+    double area(){
+        double area = Math.sqrt((x1-x2)*(x1-x2) + (y1-y2)*(y1-y2)) * height;
         return area;
     }
 }

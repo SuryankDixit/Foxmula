@@ -1,40 +1,33 @@
 package com.foxmula.assignment1;
 
 public class Time {
-    private int hours, minutes, seconds;
+    private int hour, min, sec;
 
-    public Time(int hours, int minutes, int seconds) {
-        this.hours = hours;
-        this.minutes = minutes;
-        this.seconds = seconds;
-
-        FormatCorrectionSeconds();
-        FormatCorrectionMinutes();
+    Time(int hour,int min,int sec){
+        this.hour = hour;
+        this.min = min;
+        this.sec = sec;
     }
 
-    public void Add(Time timeParam){
-        int totalHours, totalMinutes, totalSeconds;
+    Time add(Time time){
+        Time totalTime = new Time(0,0,0);
+        totalTime.hour = this.hour + time.hour;
+        totalTime.min = this.min + time.min;
+        totalTime.sec = this.sec + time.sec;
+        if(totalTime.sec >=60){
+            totalTime.min++;
+            totalTime.sec %= 60;
+        }
+        if(totalTime.min >=60){
+            totalTime.hour++;
+            totalTime.min %= 60;
+        }
+        if(totalTime.hour >=24){
+            totalTime.hour %= 24;
+        }
 
-        totalSeconds = this.seconds + timeParam.seconds;
-        totalMinutes = this.minutes + timeParam.minutes;
-        totalHours = this.hours + timeParam.hours;
+        System.out.println("Time = "+totalTime.hour+"h:"+totalTime.min+"m:"+totalTime.sec+"s");
 
-        totalMinutes += totalSeconds / 60;
-        totalSeconds %= 60;
-
-        totalHours += totalMinutes / 60;
-        totalMinutes %= 60;
-
-        System.out.println(totalHours + " hours " + totalMinutes + " minutes " + totalSeconds + " seconds");
-    }
-
-    private void FormatCorrectionSeconds(){
-        this.minutes += this.seconds / 60;
-        this.seconds %= 60;
-    }
-
-    private void FormatCorrectionMinutes(){
-        this.hours += this.minutes / 60;
-        this.minutes %= 60;
+        return totalTime;
     }
 }

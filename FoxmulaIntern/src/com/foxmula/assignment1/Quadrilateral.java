@@ -1,18 +1,11 @@
 package com.foxmula.assignment1;
 
-public class Quadrilateral {
-    private CoordinatePair p1, p2, p3, p4;
-
-    public Quadrilateral(CoordinatePair p1, CoordinatePair p2, CoordinatePair p3, CoordinatePair p4) {
-        this.p1 = p1;
-        this.p2 = p2;
-        this.p3 = p3;
-        this.p4 = p4;
+abstract public class Quadrilateral{
+    int x1,y1,x2,y2,x3,y3,x4,y4;
+    
+    void setCoordinates(int x1,int y1,int x2,int y2,int x3,int y3,int x4,int y4){
+        this.x1=x1; this.y1=y1; this.x2=x2; this.y2=y2; this.x3=x3; this.y3=y3; this.x4=x4; this.y4=y4;
     }
 
-    public double LengthOfTheSide(){
-        double length = Math.sqrt(((this.p1.getX() - this.p2.getX()) * (this.p1.getX() - this.p2.getX())) + ((this.p1.getY() - this.p2.getY()) * (this.p1.getY() - this.p2.getY())));
-
-        return length;
-    }
+    abstract double area();
 }
