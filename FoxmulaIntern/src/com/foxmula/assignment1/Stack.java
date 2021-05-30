@@ -1,27 +1,39 @@
 package com.foxmula.assignment1;
 
-import java.util.LinkedList;
-
-public class Stack {
-    private LinkedList<Integer> stack;
-
-    public Stack() {
-        this.stack = new LinkedList<>();
+public class Stack
+{
+	private Node top;
+    private class Node {
+        int data; 
+        Node link;
     }
-
-    public void push(int number){
-        this.stack.add(number);
+    
+    public int count;
+    
+    public Stack(){
+        this.top = null;
     }
-
-    public int pop(){
-        return this.stack.removeLast();
+ 
+    public void push(int x){	
+    	Node temp = new Node();	
+ 
+        temp.data = x;    
+        temp.link = top;
+        top = temp;
+        count++;
     }
-
+ 
+    public int pop() {
+        if (top == null)
+            return Integer.MIN_VALUE;
+        
+    	int x = top.data;
+        top = top.link;
+        count--;
+        return x;
+    }
+    
     public boolean isEmpty(){
-        return (this.stack.size() == 0);
-    }
-
-    public int length(){
-        return this.stack.size();
+        return top == null;
     }
 }

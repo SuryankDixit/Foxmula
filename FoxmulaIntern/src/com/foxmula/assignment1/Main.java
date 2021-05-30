@@ -34,7 +34,7 @@ public class Main {
     }
     
     public static void AreStacksEqual(Stack stack1, Stack stack2) {
-        if(stack1.length() == stack2.length())
+        if(stack1.count == stack2.count)
         	System.out.println("Stack1 and Stack2 are equal in size.");
     }
 
