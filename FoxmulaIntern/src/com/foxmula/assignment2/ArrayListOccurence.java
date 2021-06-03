@@ -45,6 +45,7 @@ public class ArrayListOccurence {
             	checkOccurrence.printFrequency(l);
             }else if(choice==2){
             	System.exit(1);
+            	in.close();
             }else {
             	System.out.println("Enter valid input.");
             }
